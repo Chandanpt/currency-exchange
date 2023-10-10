@@ -21,12 +21,18 @@ import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const [value, setValue] = useState<string>("");
+  const [toggle, setToggle] = useState<boolean>(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value.replace(/[^\d]/g, "").slice(0, 8);
     const formattedValue = inputValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     setValue(formattedValue);
   };
+
+  const toggleHandler = () => {
+    console.log(toggle);
+    setToggle(!toggle);
+  }
 
   return (
     <Box
@@ -51,6 +57,8 @@ const Home = () => {
               borderRadius: "12px",
               margin: "16px 0",
               boxShadow: "none",
+              transform: toggle && "translate(0px, 160px)",
+              transition: "all 0.2s ease"
             }}
           >
             <Typography
@@ -138,6 +146,7 @@ const Home = () => {
               position: "relative",
               display: "flex",
               boxShadow: "none",
+              zIndex: "1"
             }}
           >
             <Box
@@ -181,7 +190,7 @@ const Home = () => {
                 border: "none",
               }}
             ></Box>
-
+            <Button onClick={toggleHandler}>
             <Box
               sx={{
                 width: "32px", 
@@ -199,6 +208,7 @@ const Home = () => {
             >
               <FontAwesomeIcon icon={faArrowRightArrowLeft} color="white" />
             </Box>
+              </Button>            
             <Box
               sx={{
                 display: "flex",
@@ -223,6 +233,8 @@ const Home = () => {
               borderRadius: "12px",
               margin: "16px 0",
               boxShadow: "none",
+              transform: toggle && "translate(0px, -160px)",
+              transition: "all 0.2s ease"
             }}
           >
             <Typography
