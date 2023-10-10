@@ -57,8 +57,10 @@ const Home = () => {
               borderRadius: "12px",
               margin: "16px 0",
               boxShadow: "none",
-              transform: toggle && "translate(0px, 160px)",
-              transition: "all 0.2s ease"
+              transform: `${toggle && "translate(0px, 160px)"} `,
+              transition: "all 0.5s ease",
+              position: "inherit",
+              zIndex: "2"
             }}
           >
             <Typography
@@ -233,8 +235,8 @@ const Home = () => {
               borderRadius: "12px",
               margin: "16px 0",
               boxShadow: "none",
-              transform: toggle && "translate(0px, -160px)",
-              transition: "all 0.2s ease"
+              transform: `${toggle && "translate(0px, -160px)"} `,
+              transition: "all 0.5s ease"
             }}
           >
             <Typography
