@@ -47,7 +47,7 @@ const Home = () => {
         <Box>
           <Card
             sx={{
-              padding: "8px",
+              padding: "3px 7px",
               borderRadius: "12px",
               margin: "16px 0",
               boxShadow: "none",
@@ -70,8 +70,8 @@ const Home = () => {
                   display: "flex",
                   alignItems: "center",
                   transition: 'all 0.3s ease',
+                  padding: "4px",
                   "&:hover": {
-                    padding: "4px",
                     borderRadius: "8px",
                     backgroundColor: "#e0e0e0cc",
                   },
@@ -113,7 +113,6 @@ const Home = () => {
                   // Set width as needed
                   transition: 'all 0.3s ease',
                   "&:hover": {
-                    padding: "2px 8px",
                     borderRadius: "8px",
                     backgroundColor: "#e0e0e0cc", 
                   },
@@ -124,7 +123,7 @@ const Home = () => {
                     width: "100px",
                     textAlign: "right", 
                     fontSize: "20px", 
-                    padding: "8px", 
+                    padding: "4px", 
                     borderBottom: "none",
                   },
                 }}
@@ -220,7 +219,7 @@ const Home = () => {
           </Card>
           <Card
             sx={{
-              padding: "8px",
+              padding: "3px 7px",
               borderRadius: "12px",
               margin: "16px 0",
               boxShadow: "none",
@@ -243,8 +242,8 @@ const Home = () => {
                   display: "flex",
                   alignItems: "center",
                   transition: 'all 0.3s ease',
+                  padding: "4px",
                   "&:hover": {
-                    padding: "4px",
                     borderRadius: "8px",
                     backgroundColor: "#e0e0e0cc", 
                   },
@@ -253,7 +252,7 @@ const Home = () => {
                 <Image
                   src={usa}
                   alt="India"
-                  width={40}
+                  width={30}
                   style={{ aspectRatio: "1" }}
                 />
                 <FormControl>
@@ -285,7 +284,6 @@ const Home = () => {
                 sx={{
                   transition: 'all 0.3s ease',
                   "&:hover": {
-                    padding: "2px 8px",
                     borderRadius: "8px",
                     backgroundColor: "#e0e0e0cc", 
                   },
@@ -296,7 +294,7 @@ const Home = () => {
                     width: "100px",
                     textAlign: "right", 
                     fontSize: "20px", 
-                    padding: "8px", 
+                    padding: "4px", 
                     borderBottom: "none",
                   },
                 }}
