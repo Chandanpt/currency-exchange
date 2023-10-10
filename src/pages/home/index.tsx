@@ -10,15 +10,24 @@ import {
   FormControl,
   InputLabel,
   NativeSelect,
+  TextField,
 } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useState, ChangeEvent } from "react";
 import India from "../../../public/assets/4-13.png";
 import usa from "../../../public/assets/united-states-flat-rounded-flag-icon-with-transparent-background-free-png.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
+  const [value, setValue] = useState<string>("");
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value.replace(/[^\d]/g, "").slice(0, 8);
+    const formattedValue = inputValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    setValue(formattedValue);
+  };
+
   return (
     <Box
       sx={{ backgroundColor: "#2166D1" }}
@@ -32,7 +41,7 @@ const Home = () => {
           backgroundColor: "#F1F2F4CC",
           padding: "0 16px",
           borderRadius: "16px",
-          minWidth: "345px",
+          width: "345px",
         }}
       >
         <Box>
@@ -56,8 +65,24 @@ const Home = () => {
               alignItems="center"
               margin="0 8px"
             >
-              <Box>
-                <Image src={India} alt="India" width={40} style={{aspectRatio: "1"}} />
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  transition: 'all 0.3s ease',
+                  "&:hover": {
+                    padding: "4px",
+                    borderRadius: "8px",
+                    backgroundColor: "#e0e0e0cc",
+                  },
+                }}
+              >
+                <Image
+                  src={India}
+                  alt="India"
+                  width={40}
+                  style={{ aspectRatio: "1" }}
+                />
                 <FormControl>
                   <NativeSelect
                     defaultValue="India"
@@ -78,9 +103,32 @@ const Home = () => {
                 </FormControl>
               </Box>
 
-              <Typography variant="h6" fontWeight="bold">
-                45,105
-              </Typography>
+              <TextField
+                id="standard-basic"
+                variant="standard"
+                onChange={(e) => handleChange(e)}
+                value={value}
+                inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+                sx={{
+                  // Set width as needed
+                  transition: 'all 0.3s ease',
+                  "&:hover": {
+                    padding: "2px 8px",
+                    borderRadius: "8px",
+                    backgroundColor: "#e0e0e0cc", 
+                  },
+                  "& input": {
+                    fontWeight: "bold",
+                    display: "flex",
+                    alignItems: "center", 
+                    width: "100px",
+                    textAlign: "right", 
+                    fontSize: "20px", 
+                    padding: "8px", 
+                    borderBottom: "none",
+                  },
+                }}
+              />
             </Box>
           </Card>
           <Card
@@ -137,14 +185,14 @@ const Home = () => {
 
             <Box
               sx={{
-                width: "32px", // Diameter of the circle
-                height: "32px", // Diameter of the circle
-                borderRadius: "50%", // To make it a circle
+                width: "32px", 
+                height: "32px", 
+                borderRadius: "50%", 
                 background: "#19468D",
                 position: "absolute",
                 left: "50%",
                 top: "50%",
-                transform: "translate(-50%, -50%) rotate(90deg)", // Center the circle
+                transform: "translate(-50%, -50%) rotate(90deg)", 
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -190,8 +238,24 @@ const Home = () => {
               alignItems="center"
               margin="0 8px"
             >
-              <Box>
-                <Image src={usa} alt="India" width={30} style={{aspectRatio: "1"}} />
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  transition: 'all 0.3s ease',
+                  "&:hover": {
+                    padding: "4px",
+                    borderRadius: "8px",
+                    backgroundColor: "#e0e0e0cc", 
+                  },
+                }}
+              >
+                <Image
+                  src={usa}
+                  alt="India"
+                  width={40}
+                  style={{ aspectRatio: "1" }}
+                />
                 <FormControl>
                   <NativeSelect
                     defaultValue="India"
@@ -212,12 +276,53 @@ const Home = () => {
                 </FormControl>
               </Box>
 
-              <Typography variant="h6" fontWeight="bold">
-                541.97
-              </Typography>
+              <TextField
+                id="standard-basic"
+                variant="standard"
+                onChange={(e) => handleChange(e)}
+                value={value}
+                inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+                sx={{
+                  transition: 'all 0.3s ease',
+                  "&:hover": {
+                    padding: "2px 8px",
+                    borderRadius: "8px",
+                    backgroundColor: "#e0e0e0cc", 
+                  },
+                  "& input": {
+                    fontWeight: "bold",
+                    display: "flex",
+                    alignItems: "center", 
+                    width: "100px",
+                    textAlign: "right", 
+                    fontSize: "20px", 
+                    padding: "8px", 
+                    borderBottom: "none",
+                  },
+                }}
+              />
             </Box>
           </Card>
         </Box>
+        <Button
+          variant="contained"
+          fullWidth
+          sx={{ margin: "16px 0", borderRadius: "12px", padding: "16px" }}
+        >
+          Go to exchange currency
+        </Button>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            fontSize: "12px",
+            color: "#505A63",
+            textAlign: "center",
+            marginBottom: "16px",
+          }}
+        >
+          Exchange rates are dynamic. Always remember to check the appropriate
+          rate in branch before carrying out your exchange
+        </Typography>
       </Card>
     </Box>
   );
