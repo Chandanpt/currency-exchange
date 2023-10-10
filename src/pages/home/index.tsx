@@ -14,9 +14,9 @@ import {
 import Image from "next/image";
 import React from "react";
 import India from "../../../public/assets/4-13.png";
-import arrows from "../../../public/assets/color.png";
-import USA from "../../../public/assets/pngtree-american-flag-elements-png-image_447902.jpg";
-import Eng from "../../../public/assets/png-clipart-flag-of-england-flag-of-the-united-kingdom-symbol-england-angle-flag-thumbnail.png";
+import usa from "../../../public/assets/united-states-flat-rounded-flag-icon-with-transparent-background-free-png.webp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   return (
@@ -38,22 +38,26 @@ const Home = () => {
         <Box>
           <Card
             sx={{
-              padding: "4px",
+              padding: "8px",
               borderRadius: "12px",
               margin: "16px 0",
               boxShadow: "none",
             }}
           >
-            <Typography variant="subtitle1" sx={{ margin: "0 10px" }}>
+            <Typography
+              variant="subtitle1"
+              sx={{ margin: "0 10px", fontSize: "12px", color: "#687082" }}
+            >
               You give
             </Typography>
             <Box
               display="flex"
               justifyContent="space-between"
               alignItems="center"
+              margin="0 8px"
             >
               <Box>
-                <Image src={India} alt="India" height={40} width={50} />
+                <Image src={India} alt="India" width={40} style={{aspectRatio: "1"}} />
                 <FormControl>
                   <NativeSelect
                     defaultValue="India"
@@ -98,8 +102,13 @@ const Home = () => {
                 width: "50%",
               }}
             >
-              <Typography variant="subtitle1">Exchange rate</Typography>
-              <Typography variant="h6">&#8377;1 = &#36;0.012 </Typography>
+              <Typography
+                variant="subtitle1"
+                sx={{ fontSize: "12px", color: "#687082" }}
+              >
+                Exchange rate
+              </Typography>
+              <Typography variant="h6">&#8377;1 = $0.012 </Typography>
             </Box>
             <Box
               sx={{
@@ -107,10 +116,10 @@ const Home = () => {
                 left: "50%",
                 top: 0,
                 bottom: 0,
-                width: "8px", // Width of the vertical red line
-                backgroundColor: "#F1F2F4CC",
-                opacity: "2",
-                marginX: "-4px", // Half of the width to center the line
+                width: "4px",
+                backgroundColor: "#2166D1",
+                marginX: "-2px",
+                border: "none",
               }}
             ></Box>
             <Box
@@ -119,10 +128,10 @@ const Home = () => {
                 left: "50%",
                 top: 0,
                 bottom: 0,
-                width: "8px", // Width of the vertical red line
+                width: "4px",
                 backgroundColor: "#F1F2F4CC",
-                opacity: "2",
-                marginX: "-4px", // Half of the width to center the line
+                marginX: "-2px",
+                border: "none",
               }}
             ></Box>
 
@@ -135,13 +144,13 @@ const Home = () => {
                 position: "absolute",
                 left: "50%",
                 top: "50%",
-                transform: "translate(-50%, -50%)", // Center the circle
+                transform: "translate(-50%, -50%) rotate(90deg)", // Center the circle
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <Image src={arrows} alt="arrows" />
+              <FontAwesomeIcon icon={faArrowRightArrowLeft} color="white" />
             </Box>
             <Box
               sx={{
@@ -152,28 +161,37 @@ const Home = () => {
                 width: "50%",
               }}
             >
-              <Typography variant="subtitle1">Fee</Typography>
+              <Typography
+                variant="subtitle1"
+                sx={{ fontSize: "12px", color: "#687082" }}
+              >
+                Fee
+              </Typography>
               <Typography variant="h6">&#8377;50 </Typography>
             </Box>
           </Card>
           <Card
             sx={{
-              padding: "4px",
+              padding: "8px",
               borderRadius: "12px",
               margin: "16px 0",
               boxShadow: "none",
             }}
           >
-            <Typography variant="subtitle1" sx={{ margin: "0 10px" }}>
-              You give
+            <Typography
+              variant="subtitle1"
+              sx={{ margin: "0 10px", fontSize: "12px", color: "#687082" }}
+            >
+              You receive
             </Typography>
             <Box
               display="flex"
               justifyContent="space-between"
               alignItems="center"
+              margin="0 8px"
             >
               <Box>
-                <Image src={India} alt="India" height={40} width={50} />
+                <Image src={usa} alt="India" width={30} style={{aspectRatio: "1"}} />
                 <FormControl>
                   <NativeSelect
                     defaultValue="India"
@@ -195,7 +213,7 @@ const Home = () => {
               </Box>
 
               <Typography variant="h6" fontWeight="bold">
-                45,105
+                541.97
               </Typography>
             </Box>
           </Card>

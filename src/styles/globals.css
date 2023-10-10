@@ -2,3 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+.css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+  border-bottom: none;
+}
